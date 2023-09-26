@@ -17,8 +17,19 @@ public class DiceRoll {
     }
 
     public void rollDice() {
-        Random ran = new Random();
+        if (getp1Score() >= 40) {
+                System.out.println("Player 1 wins the game!");
+                System.out.println("Press enter to exit game");
+                System.exit(0);
+        }
 
+        if (getp2Score() >= 40) {
+                System.out.println("Player 2 wins the game!");
+                System.out.println("Press enter to exit game");
+                System.exit(0);
+        }
+        Random ran = new Random();
+        
         d1 = ran.nextInt(6) + 1;
         d2 = ran.nextInt(6) + 1;
         sum = d1 + d2;
@@ -37,7 +48,16 @@ public class DiceRoll {
                 System.out.println("Oh no, player 2 rolled two 1's and lost all points.");
                 p2Score = 0;
             }
-        }
+        } else if(d1== 6 && d2==6){
+                //William du kan skrive kode her
+        } else if(d1==d2){
+            System.out.println("The dice rolled the same number " + d1 + ", roll again.");
+            if(p1Turn)
+                System.out.println("Total score - Player 1: " + p1Score); 
+            else 
+                System.out.println("Total score - Player 2: " + p2Score);
+            rollDice();
+        } 
     }
 
     public int getd1() {
@@ -91,11 +111,13 @@ public class DiceRoll {
             if (diceRoll.getp1Score() >= 40) {
                 System.out.println("Player 1 wins the game!");
                 System.out.println("Press enter to exit game");
+                 System.exit(0);
             }
 
             if (diceRoll.getp2Score() >= 40) {
                 System.out.println("Player 2 wins the game!");
                 System.out.println("Press enter to exit game");
+                System.exit(0);
             }
 
 
