@@ -29,7 +29,15 @@ public class DiceRoll {
         else {
             p2Score += sum;
         }
-        
+        if (d1 == 1 && d2 == 1) {
+            if (p1Turn) {
+                System.out.println("Oh no, player 1 rolled two 1's and lost all points.");
+                p1Score = 0;
+            } else {
+                System.out.println("Oh no, player 2 rolled two 1's and lost all points.");
+                p2Score = 0;
+            }
+        }
     }
 
     public int getd1() {
