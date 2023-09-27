@@ -28,6 +28,7 @@ public class DiceRoll {
                 System.out.println("Press enter to exit game");
                 System.exit(0);
         }
+
         Random ran = new Random();
         
         d1 = ran.nextInt(6) + 1;
@@ -40,24 +41,20 @@ public class DiceRoll {
         else {
             p2Score += sum;
         }
-        if (d1 == 1 && d2 == 1) {
-            if (p1Turn) {
-                System.out.println("Oh no, player 1 rolled two 1's and lost all points.");
-                p1Score = 0;
-            } else {
-                System.out.println("Oh no, player 2 rolled two 1's and lost all points.");
-                p2Score = 0;
-            }
-        } else if(d1== 6 && d2==6){
-                //William du kan skrive kode her
-        } else if(d1==d2){
-            System.out.println("The dice rolled the same number " + d1 + ", roll again.");
-            if(p1Turn)
-                System.out.println("Total score - Player 1: " + p1Score); 
-            else 
-                System.out.println("Total score - Player 2: " + p2Score);
-            rollDice();
-        } 
+
+        if (winConditions(p1Score, p2Score, d1, d2)) {
+            System.out.println("Player wins!");
+        }
+    }
+
+    public static boolean winConditions(int p1Score, int p2Score, int d1, int d2) {
+        if (p1Score >= 40 && d1 == d2) {
+            return true;
+        } else if (p2Score >= 40 && d1 == d2) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getd1() {
