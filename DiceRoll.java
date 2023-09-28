@@ -83,20 +83,24 @@ public class DiceRoll {
             // rollDice();
             extraTurn = true;
             priviousRollTwoSixes = false;
+            checkWinner();
         }
+        
+    }
+    
+    public void checkWinner() {
         if (getp1Score() >= 40) {
             System.out.println("Player 1 wins the game!");
             System.out.println("Press enter to exit game");
             System.exit(0);
         }
-
         if (getp2Score() >= 40) {
-            System.out.println("Player 2 wins the game!");
+            System.out.println("Player 2 wins the game!");;
             System.out.println("Press enter to exit game");
             System.exit(0);
         }
     }
-
+    
     public boolean getExtraTurn() {
         return extraTurn;
     }
@@ -148,17 +152,7 @@ public class DiceRoll {
                 p1Turn = true;
             }
 
-            if (diceRoll.getp1Score() >= 40) {
-                System.out.println("Player 1 wins the game!");
-                System.out.println("Press enter to exit game");
-                System.exit(0);
-            }
-
-            if (diceRoll.getp2Score() >= 40) {
-                System.out.println("Player 2 wins the game!");
-                System.out.println("Press enter to exit game");
-                System.exit(0);
-            }
+            diceRoll.checkWinner();
 
         }
 
