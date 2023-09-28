@@ -50,6 +50,7 @@ public class DiceRoll {
                 System.out.println("Oh no, player 2 rolled two 1's and lost all points.");
                 p2Score = 0;
             }
+            extraTurn = true;
             priviousRollTwoSixes = false;
             // ændring
         }
